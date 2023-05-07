@@ -6,6 +6,7 @@ import com.example.hangkhong.repositories.ChuyenBayRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,5 +40,25 @@ public class ChuyenBayService {
             chuyenBayRepository.save(chuyenBay);
         }
         return chuyenBayRepository.saveAll(chuyenBayList);
+    }
+
+    public List<ChuyenBay> getChuyenBayByGaDi(String gaDi) {
+        return chuyenBayRepository.getChuyenBayByGaDi(gaDi);
+    }
+
+    public List<ChuyenBay> getChuyenBayByGaDen(String gaDen) {
+        return chuyenBayRepository.getChuyenBayByGaDen(gaDen);
+    }
+
+    public List<ChuyenBay> getChuyenBayBeforeGioDi(LocalTime gio) {
+        return chuyenBayRepository.getChuyenBayBeforeGioDi(gio);
+    }
+
+    public List<ChuyenBay> getChuyenBayBetweenGioDi(LocalTime gio1, LocalTime gio2) {
+        return chuyenBayRepository.getChuyenBayBetweenGioDi(gio1, gio2);
+    }
+
+    public ChuyenBay getLongestChuyenBay() {
+        return chuyenBayRepository.getLongestChuyenBay();
     }
 }

@@ -1,8 +1,6 @@
 package com.example.hangkhong.services;
 
-import com.example.hangkhong.dto.MayBayDTO;
 import com.example.hangkhong.dto.NhanVienDTO;
-import com.example.hangkhong.entities.MayBay;
 import com.example.hangkhong.entities.NhanVien;
 import com.example.hangkhong.repositories.NhanVienRepository;
 import lombok.RequiredArgsConstructor;
@@ -36,4 +34,23 @@ public class NhanVienService {
         return nhanVienRepository.saveAll(nhanVienList);
     }
 
+    public List<NhanVien> getAllNhanVienNamedNguyen() {
+        return nhanVienRepository.getAllNhanVienNamedNguyen();
+    }
+
+    public NhanVien getNhanVienByMaNv(String manv) {
+        return nhanVienRepository.getNhanVienByMaNv(manv);
+    }
+
+    public List<NhanVien> getAllNhanVienWithLuongHigherThan(int luong) {
+        return nhanVienRepository.getAllNhanVienWithLuongHigherThan(luong);
+    }
+
+    public List<NhanVien> getAllNhanVienWithLuongAboveAverage() {
+        return nhanVienRepository.getAllNhanVienWithLuongAboveAverage();
+    }
+
+    public Integer getTotalLuong() {
+        return nhanVienRepository.getTotalLuong();
+    }
 }
