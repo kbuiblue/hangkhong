@@ -1,6 +1,7 @@
 package com.example.hangkhong.services;
 
 import com.example.hangkhong.dto.ChungNhanDTO;
+import com.example.hangkhong.dto.CountChungNhanDTO;
 import com.example.hangkhong.entities.ChungNhan;
 import com.example.hangkhong.repositories.ChungNhanRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ChungNhanService {
     private final ChungNhanRepository chungNhanRepository;
+
     public ChungNhan createChungNhan(ChungNhanDTO chungNhanDTO) {
         ChungNhan chungNhan = new ChungNhan();
         chungNhan.setMaNv(chungNhanDTO.getMaNv());
@@ -23,7 +25,7 @@ public class ChungNhanService {
     public List<ChungNhan> createAllChungNhan(List<ChungNhanDTO> chungNhanDTOs) {
         List<ChungNhan> chungNhanList = new ArrayList<>();
 
-        for (ChungNhanDTO chungNhanDTO: chungNhanDTOs) {
+        for (ChungNhanDTO chungNhanDTO : chungNhanDTOs) {
             ChungNhan chungNhan = new ChungNhan();
             chungNhan.setMaNv(chungNhanDTO.getMaNv());
             chungNhan.setMaMb(chungNhanDTO.getMaMb());
@@ -32,4 +34,19 @@ public class ChungNhanService {
         return chungNhanRepository.saveAll(chungNhanList);
     }
 
+    public ChungNhan getChungNhanByMaChungNhan(int maChungNhan) {
+        return chungNhanRepository.getChungNhanByMaChungNhan(maChungNhan);
+    }
+
+    public List<ChungNhan> getAllChungNhanByMaMb(int maMb) {
+        return chungNhanRepository.getAllChungNhanByMaMb(maMb);
+    }
+
+    public List<ChungNhan> getAllChungNhanByMaNv(String maNv) {
+        return chungNhanRepository.getAllChungNhanByMaNv(maNv);
+    }
+
+    public List<CountChungNhanDTO> countChungNhanPerNhanVien() {
+        return chungNhanRepository.countChungNhanPerNhanVien();
+    }
 }
