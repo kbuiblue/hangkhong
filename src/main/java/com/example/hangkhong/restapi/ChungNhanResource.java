@@ -1,9 +1,8 @@
 package com.example.hangkhong.restapi;
 
 import com.example.hangkhong.dto.ChungNhanDTO;
-import com.example.hangkhong.dto.ChuyenBayDTO;
+import com.example.hangkhong.dto.CountChungNhanDTO;
 import com.example.hangkhong.entities.ChungNhan;
-import com.example.hangkhong.entities.ChuyenBay;
 import com.example.hangkhong.services.ChungNhanService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -27,5 +26,25 @@ public class ChungNhanResource implements ChungNhanAPI{
     public ResponseEntity<List<ChungNhanDTO>> createAllChungNhan(List<ChungNhanDTO> chungNhanDTOs) {
         List<ChungNhan> chungNhanList = chungNhanService.createAllChungNhan(chungNhanDTOs);
         return ResponseEntity.created(URI.create("/api/chungnhan/all")).body(chungNhanDTOs);
+    }
+
+    @Override
+    public ResponseEntity<ChungNhan> getChungNhanByMaChungNhan(int maChungNhan) {
+        return ResponseEntity.ok(chungNhanService.getChungNhanByMaChungNhan(maChungNhan));
+    }
+
+    @Override
+    public ResponseEntity<List<ChungNhan>> getAllChungNhanByMaMb(int maMb) {
+        return ResponseEntity.ok(chungNhanService.getAllChungNhanByMaMb(maMb));
+    }
+
+    @Override
+    public ResponseEntity<List<ChungNhan>> getAllChungNhanByMaNv(String maNv) {
+        return ResponseEntity.ok(chungNhanService.getAllChungNhanByMaNv(maNv));
+    }
+
+    @Override
+    public ResponseEntity<List<CountChungNhanDTO>> countChungNhanPerNhanVien() {
+        return ResponseEntity.ok(chungNhanService.countChungNhanPerNhanVien());
     }
 }

@@ -9,14 +9,13 @@ import java.util.List;
 
 public interface NhanVienRepository extends JpaRepository<NhanVien, String> {
     @Query(value = "SELECT * FROM nhanvien WHERE ten LIKE 'Nguyen%'",
-    nativeQuery = true)
+            nativeQuery = true)
     List<NhanVien> getAllNhanVienNamedNguyen();
 
     @Query(value = "SELECT * FROM nhanvien WHERE manv LIKE :manv", nativeQuery = true)
     NhanVien getNhanVienByMaNv(@Param("manv") String manv);
 
-    @Query(value = "SELECT * FROM nhanvien WHERE luong > :luong",
-            nativeQuery = true)
+    @Query(value = "SELECT * FROM nhanvien WHERE luong > :luong", nativeQuery = true)
     List<NhanVien> getAllNhanVienWithLuongHigherThan(@Param("luong") int luong);
 
     @Query(value = "SELECT * FROM nhanvien WHERE luong > (SELECT AVG(luong) FROM nhanvien)", nativeQuery = true)
