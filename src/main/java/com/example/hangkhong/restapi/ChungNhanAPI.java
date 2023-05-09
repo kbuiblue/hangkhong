@@ -2,6 +2,7 @@ package com.example.hangkhong.restapi;
 
 import com.example.hangkhong.dto.ChungNhanDTO;
 import com.example.hangkhong.dto.CountChungNhanDTO;
+import com.example.hangkhong.dto.CountPhiCongDTO;
 import com.example.hangkhong.entities.ChungNhan;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,4 +29,7 @@ public interface ChungNhanAPI {
 
     @GetMapping("/chungNhanNumber")
     ResponseEntity<List<CountChungNhanDTO>> countChungNhanPerNhanVien();
+
+    @GetMapping("/soPhiCong")
+    ResponseEntity<CountPhiCongDTO> countChungNhanPerMaMb(@RequestParam int maMb);
 }

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CountChungNhanDTO {
-    private String maNv;
-    private Long soChungNhan;
+public class CountPhiCongDTO {
+    private int maMb;
+    private Long soPhiCong;
 }

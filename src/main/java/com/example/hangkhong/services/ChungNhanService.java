@@ -2,6 +2,7 @@ package com.example.hangkhong.services;
 
 import com.example.hangkhong.dto.ChungNhanDTO;
 import com.example.hangkhong.dto.CountChungNhanDTO;
+import com.example.hangkhong.dto.CountPhiCongDTO;
 import com.example.hangkhong.entities.ChungNhan;
 import com.example.hangkhong.repositories.ChungNhanRepository;
 import lombok.RequiredArgsConstructor;
@@ -48,5 +49,9 @@ public class ChungNhanService {
 
     public List<CountChungNhanDTO> countChungNhanPerNhanVien() {
         return chungNhanRepository.countChungNhanPerNhanVien();
+    }
+
+    public CountPhiCongDTO countChungNhanPerMaMb(int maMb) {
+        return chungNhanRepository.countChungNhanPerMaMb(maMb);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.hangkhong.repositories;
 
 import com.example.hangkhong.dto.CountChungNhanDTO;
+import com.example.hangkhong.dto.CountPhiCongDTO;
 import com.example.hangkhong.entities.ChungNhan;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,7 +17,8 @@ public interface ChungNhanRepository extends JpaRepository<ChungNhan, Long> {
     List<ChungNhan> getAllChungNhanByMaMb(@Param("mamb") int maMb);
 
     List<ChungNhan> getAllChungNhanByMaNv(@Param("manv") String maNv);
-    @Query(name = "countChungNhanPerNhanVien",nativeQuery = true)
+    @Query(name = "countChungNhanPerNhanVien", nativeQuery = true)
     List<CountChungNhanDTO> countChungNhanPerNhanVien();
-
+    @Query(name = "countChungNhanPerMaMb", nativeQuery = true)
+    CountPhiCongDTO countChungNhanPerMaMb(@Param("mamb") int maMb);
 }

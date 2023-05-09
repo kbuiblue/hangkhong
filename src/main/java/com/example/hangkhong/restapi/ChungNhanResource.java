@@ -2,6 +2,7 @@ package com.example.hangkhong.restapi;
 
 import com.example.hangkhong.dto.ChungNhanDTO;
 import com.example.hangkhong.dto.CountChungNhanDTO;
+import com.example.hangkhong.dto.CountPhiCongDTO;
 import com.example.hangkhong.entities.ChungNhan;
 import com.example.hangkhong.services.ChungNhanService;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class ChungNhanResource implements ChungNhanAPI{
+public class ChungNhanResource implements ChungNhanAPI {
     public final ChungNhanService chungNhanService;
 
     @Override
@@ -46,5 +47,10 @@ public class ChungNhanResource implements ChungNhanAPI{
     @Override
     public ResponseEntity<List<CountChungNhanDTO>> countChungNhanPerNhanVien() {
         return ResponseEntity.ok(chungNhanService.countChungNhanPerNhanVien());
+    }
+
+    @Override
+    public ResponseEntity<CountPhiCongDTO> countChungNhanPerMaMb(int maMb) {
+        return ResponseEntity.ok(chungNhanService.countChungNhanPerMaMb(maMb));
     }
 }
