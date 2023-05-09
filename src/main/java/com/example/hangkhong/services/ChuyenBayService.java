@@ -2,6 +2,7 @@ package com.example.hangkhong.services;
 
 import com.example.hangkhong.dto.ChuyenBayDTO;
 import com.example.hangkhong.entities.ChuyenBay;
+import com.example.hangkhong.mapper.ChuyenBayMapper;
 import com.example.hangkhong.repositories.ChuyenBayRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -42,23 +43,23 @@ public class ChuyenBayService {
         return chuyenBayRepository.saveAll(chuyenBayList);
     }
 
-    public List<ChuyenBay> getChuyenBayByGaDi(String gaDi) {
-        return chuyenBayRepository.getChuyenBayByGaDi(gaDi);
+    public List<ChuyenBayDTO> getChuyenBayByGaDi(String gaDi) {
+        return ChuyenBayMapper.INSTANCE.toChuyenBayDTOs(chuyenBayRepository.getChuyenBayByGaDi(gaDi));
     }
 
-    public List<ChuyenBay> getChuyenBayByGaDen(String gaDen) {
-        return chuyenBayRepository.getChuyenBayByGaDen(gaDen);
+    public List<ChuyenBayDTO> getChuyenBayByGaDen(String gaDen) {
+        return ChuyenBayMapper.INSTANCE.toChuyenBayDTOs(chuyenBayRepository.getChuyenBayByGaDen(gaDen));
     }
 
-    public List<ChuyenBay> getChuyenBayBeforeGioDi(LocalTime gio) {
-        return chuyenBayRepository.getChuyenBayBeforeGioDi(gio);
+    public List<ChuyenBayDTO> getChuyenBayBeforeGioDi(LocalTime gio) {
+        return ChuyenBayMapper.INSTANCE.toChuyenBayDTOs(chuyenBayRepository.getChuyenBayBeforeGioDi(gio));
     }
 
-    public List<ChuyenBay> getChuyenBayBetweenGioDi(LocalTime gio1, LocalTime gio2) {
-        return chuyenBayRepository.getChuyenBayBetweenGioDi(gio1, gio2);
+    public List<ChuyenBayDTO> getChuyenBayBetweenGioDi(LocalTime gio1, LocalTime gio2) {
+        return ChuyenBayMapper.INSTANCE.toChuyenBayDTOs(chuyenBayRepository.getChuyenBayBetweenGioDi(gio1, gio2));
     }
 
-    public ChuyenBay getLongestChuyenBay() {
-        return chuyenBayRepository.getLongestChuyenBay();
+    public ChuyenBayDTO getLongestChuyenBay() {
+        return ChuyenBayMapper.INSTANCE.toChuyenBayDTO(chuyenBayRepository.getLongestChuyenBay());
     }
 }

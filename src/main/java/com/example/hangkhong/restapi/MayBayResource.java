@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -28,27 +27,27 @@ public class MayBayResource implements MayBayAPI{
     }
 
     @Override
-    public ResponseEntity<List<MayBay>> getAllMayBay() {
+    public ResponseEntity<List<MayBayDTO>> getAllMayBay() {
         return ResponseEntity.ok(mayBayService.getAllMayBay());
     }
 
     @Override
-    public ResponseEntity<List<MayBay>> getAllBoeing() {
+    public ResponseEntity<List<MayBayDTO>> getAllBoeing() {
         return ResponseEntity.ok(mayBayService.getAllBoeing());
     }
 
     @Override
-    public ResponseEntity<List<MayBay>> getAllAirbus() {
+    public ResponseEntity<List<MayBayDTO>> getAllAirbus() {
         return ResponseEntity.ok(mayBayService.getAllAirbus());
     }
 
     @Override
-    public ResponseEntity<List<MayBay>> getAllOther() {
+    public ResponseEntity<List<MayBayDTO>> getAllOther() {
         return ResponseEntity.ok(mayBayService.getAllOther());
     }
 
     @Override
-    public ResponseEntity<Optional<MayBay>> getMayBayById(int maMb) {
+    public ResponseEntity<MayBayDTO> getMayBayById(int maMb) {
         return ResponseEntity.ok(mayBayService.getMayBayById(maMb));
     }
 }

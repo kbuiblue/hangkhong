@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequestMapping(value = "/api/maybay")
 public interface MayBayAPI {
@@ -17,17 +16,18 @@ public interface MayBayAPI {
     ResponseEntity<List<MayBayDTO>> createAllMayBay(@RequestBody List<MayBayDTO> mayBayDTOs);
 
     @GetMapping
-    ResponseEntity<List<MayBay>> getAllMayBay();
+    ResponseEntity<List<MayBayDTO>> getAllMayBay();
+
     @GetMapping("/boeing")
-    ResponseEntity<List<MayBay>> getAllBoeing();
+    ResponseEntity<List<MayBayDTO>> getAllBoeing();
 
     @GetMapping("/airbus")
-    ResponseEntity<List<MayBay>> getAllAirbus();
+    ResponseEntity<List<MayBayDTO>> getAllAirbus();
 
     @GetMapping("/other")
-    ResponseEntity<List<MayBay>> getAllOther();
+    ResponseEntity<List<MayBayDTO>> getAllOther();
 
     @GetMapping("/id")
-    ResponseEntity<Optional<MayBay>> getMayBayById(@RequestParam int maMb);
+    ResponseEntity<MayBayDTO> getMayBayById(@RequestParam int maMb);
 
 }

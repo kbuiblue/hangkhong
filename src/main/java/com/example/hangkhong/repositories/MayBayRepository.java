@@ -11,4 +11,5 @@ public interface MayBayRepository extends JpaRepository<MayBay, Integer> {
     List<MayBay> getAllBoeing();
     List<MayBay> getAllAirbus();
     List<MayBay> getAllOther();
+    MayBay getMayBayById(int maMb);
 }

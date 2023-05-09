@@ -2,6 +2,7 @@ package com.example.hangkhong.services;
 
 import com.example.hangkhong.dto.MayBayDTO;
 import com.example.hangkhong.entities.MayBay;
+import com.example.hangkhong.mapper.MayBayMapper;
 import com.example.hangkhong.repositories.MayBayRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -36,23 +37,23 @@ public class MayBayService {
         return mayBayRepository.saveAll(mayBayList);
     }
 
-    public List<MayBay> getAllMayBay() {
-        return mayBayRepository.findAll();
+    public List<MayBayDTO> getAllMayBay() {
+        return MayBayMapper.INSTANCE.toMayBayDTOs(mayBayRepository.findAll());
     }
 
-    public List<MayBay> getAllBoeing() {
-        return mayBayRepository.getAllBoeing();
+    public List<MayBayDTO> getAllBoeing() {
+        return MayBayMapper.INSTANCE.toMayBayDTOs(mayBayRepository.getAllBoeing());
     }
 
-    public List<MayBay> getAllAirbus() {
-        return mayBayRepository.getAllAirbus();
+    public List<MayBayDTO> getAllAirbus() {
+        return MayBayMapper.INSTANCE.toMayBayDTOs(mayBayRepository.getAllAirbus());
     }
 
-    public List<MayBay> getAllOther() {
-        return mayBayRepository.getAllOther();
+    public List<MayBayDTO> getAllOther() {
+        return MayBayMapper.INSTANCE.toMayBayDTOs(mayBayRepository.getAllOther());
     }
 
-    public Optional<MayBay> getMayBayById(int maMb) {
-        return mayBayRepository.findById(maMb);
+    public MayBayDTO getMayBayById(int maMb) {
+        return MayBayMapper.INSTANCE.toMayBayDTO(mayBayRepository.getMayBayById(maMb));
     }
 }

@@ -19,20 +19,20 @@ public interface ChuyenBayAPI {
     ResponseEntity<List<ChuyenBayDTO>> createAllChuyenBay(@RequestBody List<ChuyenBayDTO> chuyenBayDTOs);
 
     @GetMapping("/gadi")
-    ResponseEntity<List<ChuyenBay>> getChuyenBayByGaDi(@RequestParam String gaDi);
+    ResponseEntity<List<ChuyenBayDTO>> getChuyenBayByGaDi(@RequestParam String gaDi);
 
     @GetMapping("/gaden")
-    ResponseEntity<List<ChuyenBay>> getChuyenBayByGaDen(@RequestParam String gaDen);
+    ResponseEntity<List<ChuyenBayDTO>> getChuyenBayByGaDen(@RequestParam String gaDen);
 
     @GetMapping("/beforegiodi")
-    ResponseEntity<List<ChuyenBay>> getChuyenBayBeforeGioDi
+    ResponseEntity<List<ChuyenBayDTO>> getChuyenBayBeforeGioDi
             (@RequestParam("gio") @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) LocalTime gio);
 
     @GetMapping("/betweengiodi")
-    ResponseEntity<List<ChuyenBay>> getChuyenBayBetweenGioDi
+    ResponseEntity<List<ChuyenBayDTO>> getChuyenBayBetweenGioDi
             (@RequestParam("gio1") @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) LocalTime gio1,
              @RequestParam("gio2") @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) LocalTime gio2);
 
     @GetMapping("/longest")
-    ResponseEntity<ChuyenBay> getLongestChuyenBay();
+    ResponseEntity<ChuyenBayDTO> getLongestChuyenBay();
 }

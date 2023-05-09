@@ -29,27 +29,27 @@ public class ChuyenBayResource implements ChuyenBayAPI {
     }
 
     @Override
-    public ResponseEntity<List<ChuyenBay>> getChuyenBayByGaDi(String gaDi) {
+    public ResponseEntity<List<ChuyenBayDTO>> getChuyenBayByGaDi(String gaDi) {
         return ResponseEntity.ok(chuyenBayService.getChuyenBayByGaDi(gaDi));
     }
 
     @Override
-    public ResponseEntity<List<ChuyenBay>> getChuyenBayByGaDen(String gaDen) {
+    public ResponseEntity<List<ChuyenBayDTO>> getChuyenBayByGaDen(String gaDen) {
         return ResponseEntity.ok(chuyenBayService.getChuyenBayByGaDen(gaDen));
     }
 
     @Override
-    public ResponseEntity<List<ChuyenBay>> getChuyenBayBeforeGioDi(LocalTime gio) {
+    public ResponseEntity<List<ChuyenBayDTO>> getChuyenBayBeforeGioDi(LocalTime gio) {
         return ResponseEntity.ok(chuyenBayService.getChuyenBayBeforeGioDi(gio));
     }
 
     @Override
-    public ResponseEntity<List<ChuyenBay>> getChuyenBayBetweenGioDi(LocalTime gio1, LocalTime gio2) {
+    public ResponseEntity<List<ChuyenBayDTO>> getChuyenBayBetweenGioDi(LocalTime gio1, LocalTime gio2) {
         return ResponseEntity.ok(chuyenBayService.getChuyenBayBetweenGioDi(gio1, gio2));
     }
 
     @Override
-    public ResponseEntity<ChuyenBay> getLongestChuyenBay() {
+    public ResponseEntity<ChuyenBayDTO> getLongestChuyenBay() {
         return ResponseEntity.ok(chuyenBayService.getLongestChuyenBay());
     }
 }
