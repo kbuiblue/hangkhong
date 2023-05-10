@@ -2,6 +2,7 @@ package com.example.hangkhong.services;
 
 import com.example.hangkhong.dto.NhanVienDTO;
 import com.example.hangkhong.entities.NhanVien;
+import com.example.hangkhong.mapper.NhanVienMapper;
 import com.example.hangkhong.repositories.NhanVienRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -34,20 +35,20 @@ public class NhanVienService {
         return nhanVienRepository.saveAll(nhanVienList);
     }
 
-    public List<NhanVien> getAllNhanVienNamedNguyen() {
-        return nhanVienRepository.getAllNhanVienNamedNguyen();
+    public List<NhanVienDTO> getAllNhanVienNamedNguyen() {
+        return NhanVienMapper.INSTANCE.toNhanVienDTOs(nhanVienRepository.getAllNhanVienNamedNguyen());
     }
 
-    public NhanVien getNhanVienByMaNv(String manv) {
-        return nhanVienRepository.getNhanVienByMaNv(manv);
+    public NhanVienDTO getNhanVienByMaNv(String manv) {
+        return NhanVienMapper.INSTANCE.toNhanVienDTO(nhanVienRepository.getNhanVienByMaNv(manv));
     }
 
-    public List<NhanVien> getAllNhanVienWithLuongHigherThan(int luong) {
-        return nhanVienRepository.getAllNhanVienWithLuongHigherThan(luong);
+    public List<NhanVienDTO> getAllNhanVienWithLuongHigherThan(int luong) {
+        return NhanVienMapper.INSTANCE.toNhanVienDTOs(nhanVienRepository.getAllNhanVienWithLuongHigherThan(luong));
     }
 
-    public List<NhanVien> getAllNhanVienWithLuongAboveAverage() {
-        return nhanVienRepository.getAllNhanVienWithLuongAboveAverage();
+    public List<NhanVienDTO> getAllNhanVienWithLuongAboveAverage() {
+        return NhanVienMapper.INSTANCE.toNhanVienDTOs(nhanVienRepository.getAllNhanVienWithLuongAboveAverage());
     }
 
     public Integer getTotalLuong() {

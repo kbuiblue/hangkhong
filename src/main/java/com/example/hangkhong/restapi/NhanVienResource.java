@@ -28,22 +28,22 @@ public class NhanVienResource implements NhanVienAPI {
     }
 
     @Override
-    public ResponseEntity<List<NhanVien>> getAllNhanVienNamedNguyen() {
+    public ResponseEntity<List<NhanVienDTO>> getAllNhanVienNamedNguyen() {
         return ResponseEntity.ok(nhanVienService.getAllNhanVienNamedNguyen());
     }
 
     @Override
-    public ResponseEntity<NhanVien> getNhanVienByMaNv(String manv) {
+    public ResponseEntity<NhanVienDTO> getNhanVienByMaNv(String manv) {
         return ResponseEntity.ok(nhanVienService.getNhanVienByMaNv(manv));
     }
 
     @Override
-    public ResponseEntity<List<NhanVien>> getAllNhanVienWithLuongHigherThan(int luong) {
+    public ResponseEntity<List<NhanVienDTO>> getAllNhanVienWithLuongHigherThan(int luong) {
         return ResponseEntity.ok(nhanVienService.getAllNhanVienWithLuongHigherThan(luong));
     }
 
     @Override
-    public ResponseEntity<List<NhanVien>> getAllNhanVienWithLuongAboveAverage() {
+    public ResponseEntity<List<NhanVienDTO>> getAllNhanVienWithLuongAboveAverage() {
         return ResponseEntity.ok(nhanVienService.getAllNhanVienWithLuongAboveAverage());
     }
 

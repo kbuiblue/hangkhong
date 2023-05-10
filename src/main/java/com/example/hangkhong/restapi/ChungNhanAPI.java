@@ -19,13 +19,13 @@ public interface ChungNhanAPI {
     ResponseEntity<List<ChungNhanDTO>> createAllChungNhan(@RequestBody List<ChungNhanDTO> chungNhanDTOs);
 
     @GetMapping("/maChungNhan")
-    ResponseEntity<ChungNhan> getChungNhanByMaChungNhan(@RequestParam int maChungNhan);
+    ResponseEntity<ChungNhanDTO> getChungNhanByMaChungNhan(@RequestParam int maChungNhan);
 
     @GetMapping("/maMb")
-    ResponseEntity<List<ChungNhan>> getAllChungNhanByMaMb(@RequestParam int maMb);
+    ResponseEntity<List<ChungNhanDTO>> getAllChungNhanByMaMb(@RequestParam int maMb);
 
     @GetMapping("/maNv")
-    ResponseEntity<List<ChungNhan>> getAllChungNhanByMaNv(@RequestParam String maNv);
+    ResponseEntity<List<ChungNhanDTO>> getAllChungNhanByMaNv(@RequestParam String maNv);
 
     @GetMapping("/chungNhanNumber")
     ResponseEntity<List<CountChungNhanDTO>> countChungNhanPerNhanVien();

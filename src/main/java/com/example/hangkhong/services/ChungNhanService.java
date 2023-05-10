@@ -4,6 +4,7 @@ import com.example.hangkhong.dto.ChungNhanDTO;
 import com.example.hangkhong.dto.CountChungNhanDTO;
 import com.example.hangkhong.dto.CountPhiCongDTO;
 import com.example.hangkhong.entities.ChungNhan;
+import com.example.hangkhong.mapper.ChungNhanMapper;
 import com.example.hangkhong.repositories.ChungNhanRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -35,16 +36,16 @@ public class ChungNhanService {
         return chungNhanRepository.saveAll(chungNhanList);
     }
 
-    public ChungNhan getChungNhanByMaChungNhan(int maChungNhan) {
-        return chungNhanRepository.getChungNhanByMaChungNhan(maChungNhan);
+    public ChungNhanDTO getChungNhanByMaChungNhan(int maChungNhan) {
+        return ChungNhanMapper.INSTANCE.toChungNhanDTO(chungNhanRepository.getChungNhanByMaChungNhan(maChungNhan));
     }
 
-    public List<ChungNhan> getAllChungNhanByMaMb(int maMb) {
-        return chungNhanRepository.getAllChungNhanByMaMb(maMb);
+    public List<ChungNhanDTO> getAllChungNhanByMaMb(int maMb) {
+        return ChungNhanMapper.INSTANCE.toChungNhanDTOs(chungNhanRepository.getAllChungNhanByMaMb(maMb));
     }
 
-    public List<ChungNhan> getAllChungNhanByMaNv(String maNv) {
-        return chungNhanRepository.getAllChungNhanByMaNv(maNv);
+    public List<ChungNhanDTO> getAllChungNhanByMaNv(String maNv) {
+        return ChungNhanMapper.INSTANCE.toChungNhanDTOs(chungNhanRepository.getAllChungNhanByMaNv(maNv));
     }
 
     public List<CountChungNhanDTO> countChungNhanPerNhanVien() {

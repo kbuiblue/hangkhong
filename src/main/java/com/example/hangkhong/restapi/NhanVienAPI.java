@@ -16,16 +16,16 @@ public interface NhanVienAPI {
     ResponseEntity<List<NhanVienDTO>> createAllNhanVien(@RequestBody List<NhanVienDTO> nhanVienDTOs);
 
     @GetMapping("/allNguyen")
-    ResponseEntity<List<NhanVien>> getAllNhanVienNamedNguyen();
+    ResponseEntity<List<NhanVienDTO>> getAllNhanVienNamedNguyen();
 
     @GetMapping
-    ResponseEntity<NhanVien> getNhanVienByMaNv(String manv);
+    ResponseEntity<NhanVienDTO> getNhanVienByMaNv(String manv);
 
     @GetMapping("/luongHigherThan")
-    ResponseEntity<List<NhanVien>> getAllNhanVienWithLuongHigherThan(@RequestParam int luong);
+    ResponseEntity<List<NhanVienDTO>> getAllNhanVienWithLuongHigherThan(@RequestParam int luong);
 
     @GetMapping("/luongAboveAverage")
-    ResponseEntity<List<NhanVien>> getAllNhanVienWithLuongAboveAverage();
+    ResponseEntity<List<NhanVienDTO>> getAllNhanVienWithLuongAboveAverage();
 
     @GetMapping("/totalLuong")
     ResponseEntity<Integer> getTotalLuong();

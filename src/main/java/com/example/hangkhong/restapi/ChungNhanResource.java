@@ -30,17 +30,17 @@ public class ChungNhanResource implements ChungNhanAPI {
     }
 
     @Override
-    public ResponseEntity<ChungNhan> getChungNhanByMaChungNhan(int maChungNhan) {
+    public ResponseEntity<ChungNhanDTO> getChungNhanByMaChungNhan(int maChungNhan) {
         return ResponseEntity.ok(chungNhanService.getChungNhanByMaChungNhan(maChungNhan));
     }
 
     @Override
-    public ResponseEntity<List<ChungNhan>> getAllChungNhanByMaMb(int maMb) {
+    public ResponseEntity<List<ChungNhanDTO>> getAllChungNhanByMaMb(int maMb) {
         return ResponseEntity.ok(chungNhanService.getAllChungNhanByMaMb(maMb));
     }
 
     @Override
-    public ResponseEntity<List<ChungNhan>> getAllChungNhanByMaNv(String maNv) {
+    public ResponseEntity<List<ChungNhanDTO>> getAllChungNhanByMaNv(String maNv) {
         return ResponseEntity.ok(chungNhanService.getAllChungNhanByMaNv(maNv));
     }
 
