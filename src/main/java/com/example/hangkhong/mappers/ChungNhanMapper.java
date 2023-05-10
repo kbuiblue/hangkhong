@@ -1,4 +1,4 @@
-package com.example.hangkhong.mapper;
+package com.example.hangkhong.mappers;
 
 import com.example.hangkhong.dto.ChungNhanDTO;
 import com.example.hangkhong.entities.ChungNhan;

@@ -4,7 +4,7 @@ import com.example.hangkhong.dto.ChungNhanDTO;
 import com.example.hangkhong.dto.CountChungNhanDTO;
 import com.example.hangkhong.dto.CountPhiCongDTO;
 import com.example.hangkhong.entities.ChungNhan;
-import com.example.hangkhong.mapper.ChungNhanMapper;
+import com.example.hangkhong.mappers.ChungNhanMapper;
 import com.example.hangkhong.repositories.ChungNhanRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

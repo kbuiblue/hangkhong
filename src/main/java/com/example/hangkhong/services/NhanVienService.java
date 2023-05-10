@@ -2,7 +2,7 @@ package com.example.hangkhong.services;
 
 import com.example.hangkhong.dto.NhanVienDTO;
 import com.example.hangkhong.entities.NhanVien;
-import com.example.hangkhong.mapper.NhanVienMapper;
+import com.example.hangkhong.mappers.NhanVienMapper;
 import com.example.hangkhong.repositories.NhanVienRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

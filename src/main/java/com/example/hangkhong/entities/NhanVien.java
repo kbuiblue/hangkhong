@@ -21,4 +21,5 @@ public class NhanVien {
 
     @Column
     private int luong;
+
 }

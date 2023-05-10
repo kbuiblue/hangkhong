@@ -2,12 +2,12 @@ package com.example.hangkhong.services;
 
 import com.example.hangkhong.dto.MayBayDTO;
 import com.example.hangkhong.entities.MayBay;
-import com.example.hangkhong.mapper.MayBayMapper;
+import com.example.hangkhong.exceptions.AllExceptions;
+import com.example.hangkhong.mappers.MayBayMapper;
 import com.example.hangkhong.repositories.MayBayRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -54,6 +54,7 @@ public class MayBayService {
     }
 
     public MayBayDTO getMayBayById(int maMb) {
-        return MayBayMapper.INSTANCE.toMayBayDTO(mayBayRepository.getMayBayById(maMb));
+        MayBay mayBay = mayBayRepository.findById(maMb).orElseThrow(AllExceptions::MayBayNotFound);
+        return MayBayMapper.INSTANCE.toMayBayDTO(mayBay);
     }
 }
