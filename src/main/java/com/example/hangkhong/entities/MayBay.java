@@ -23,7 +23,7 @@ import javax.persistence.*;
 public class MayBay {
     @Id
     @Column(name = "mamb")
-    private int maMb;
+    private Integer maMb;
 
     @Column
     private String loai;

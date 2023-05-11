@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
+import static com.example.hangkhong.exceptions.AllExceptions.InvalidInput;
 
 @Service
 @RequiredArgsConstructor
@@ -53,7 +54,10 @@ public class MayBayService {
         return MayBayMapper.INSTANCE.toMayBayDTOs(mayBayRepository.getAllOther());
     }
 
-    public MayBayDTO getMayBayById(int maMb) {
+    public MayBayDTO getMayBayById(Integer maMb) {
+        if(maMb == null)
+            throw InvalidInput();
+
         MayBay mayBay = mayBayRepository.findById(maMb).orElseThrow(AllExceptions::MayBayNotFound);
         return MayBayMapper.INSTANCE.toMayBayDTO(mayBay);
     }

@@ -25,4 +25,5 @@ public class ResponseException extends RuntimeException{
             this.httpStatus = httpStatus;
         }
     }
+
 }

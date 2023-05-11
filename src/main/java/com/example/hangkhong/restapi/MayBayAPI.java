@@ -2,6 +2,7 @@ package com.example.hangkhong.restapi;
 
 import com.example.hangkhong.dto.MayBayDTO;
 import com.example.hangkhong.entities.MayBay;
+import com.sun.istack.NotNull;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,6 +29,6 @@ public interface MayBayAPI {
     ResponseEntity<List<MayBayDTO>> getAllOther();
 
     @GetMapping("/id")
-    ResponseEntity<MayBayDTO> getMayBayById(@RequestParam int maMb);
+    ResponseEntity<MayBayDTO> getMayBayById(@RequestParam(required = false) @NotNull Integer maMb);
 
 }

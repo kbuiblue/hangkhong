@@ -47,7 +47,7 @@ public class MayBayResource implements MayBayAPI{
     }
 
     @Override
-    public ResponseEntity<MayBayDTO> getMayBayById(int maMb) {
+    public ResponseEntity<MayBayDTO> getMayBayById(Integer maMb) {
         return ResponseEntity.ok(mayBayService.getMayBayById(maMb));
     }
 }

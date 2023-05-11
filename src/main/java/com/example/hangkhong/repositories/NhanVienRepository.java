@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface NhanVienRepository extends JpaRepository<NhanVien, String> {
     @Query(value = "SELECT * FROM nhanvien WHERE ten LIKE 'Nguyen%'",
@@ -13,7 +14,7 @@ public interface NhanVienRepository extends JpaRepository<NhanVien, String> {
     List<NhanVien> getAllNhanVienNamedNguyen();
 
     @Query(value = "SELECT * FROM nhanvien WHERE manv LIKE :manv", nativeQuery = true)
-    NhanVien getNhanVienByMaNv(@Param("manv") String manv);
+    Optional<NhanVien> getNhanVienByMaNv(@Param("manv") String manv);
 
     @Query(value = "SELECT * FROM nhanvien WHERE luong > :luong", nativeQuery = true)
     List<NhanVien> getAllNhanVienWithLuongHigherThan(@Param("luong") int luong);

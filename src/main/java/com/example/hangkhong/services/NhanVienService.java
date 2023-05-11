@@ -2,6 +2,7 @@ package com.example.hangkhong.services;
 
 import com.example.hangkhong.dto.NhanVienDTO;
 import com.example.hangkhong.entities.NhanVien;
+import com.example.hangkhong.exceptions.AllExceptions;
 import com.example.hangkhong.mappers.NhanVienMapper;
 import com.example.hangkhong.repositories.NhanVienRepository;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.hangkhong.exceptions.AllExceptions.LuongNhanVienNotFound;
 
 @Service
 @RequiredArgsConstructor
@@ -40,11 +43,16 @@ public class NhanVienService {
     }
 
     public NhanVienDTO getNhanVienByMaNv(String manv) {
-        return NhanVienMapper.INSTANCE.toNhanVienDTO(nhanVienRepository.getNhanVienByMaNv(manv));
+        NhanVien nhanVien = nhanVienRepository.getNhanVienByMaNv(manv).orElseThrow(AllExceptions::NhanVienNotFound);
+        return NhanVienMapper.INSTANCE.toNhanVienDTO(nhanVien);
     }
 
     public List<NhanVienDTO> getAllNhanVienWithLuongHigherThan(int luong) {
-        return NhanVienMapper.INSTANCE.toNhanVienDTOs(nhanVienRepository.getAllNhanVienWithLuongHigherThan(luong));
+        List<NhanVien> nhanVienList = nhanVienRepository.getAllNhanVienWithLuongHigherThan(luong);
+        if(nhanVienList.isEmpty())
+            throw LuongNhanVienNotFound();
+        else
+            return NhanVienMapper.INSTANCE.toNhanVienDTOs(nhanVienList);
     }
 
     public List<NhanVienDTO> getAllNhanVienWithLuongAboveAverage() {
