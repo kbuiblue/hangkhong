@@ -24,8 +24,7 @@ public class ChuyenBayResource implements ChuyenBayAPI {
 
     @Override
     public ResponseEntity<List<ChuyenBayDTO>> createAllChuyenBay(List<ChuyenBayDTO> chuyenBayDTOs) {
-        List<ChuyenBay> chuyenBayList = chuyenBayService.createAllChuyenBay(chuyenBayDTOs);
-        return ResponseEntity.created(URI.create("/api/maybay/all")).body(chuyenBayDTOs);
+        return ResponseEntity.created(URI.create("/api/chuyenbay/all")).body(chuyenBayDTOs);
     }
 
     @Override

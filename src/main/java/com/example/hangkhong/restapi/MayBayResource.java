@@ -22,7 +22,6 @@ public class MayBayResource implements MayBayAPI{
 
     @Override
     public ResponseEntity<List<MayBayDTO>> createAllMayBay(List<MayBayDTO> mayBayDTOs) {
-        List<MayBay> mayBayList = mayBayService.createAllMayBay(mayBayDTOs);
         return ResponseEntity.created(URI.create("/api/maybay/all")).body(mayBayDTOs);
     }
 

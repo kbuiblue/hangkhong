@@ -25,7 +25,6 @@ public class ChungNhanResource implements ChungNhanAPI {
 
     @Override
     public ResponseEntity<List<ChungNhanDTO>> createAllChungNhan(List<ChungNhanDTO> chungNhanDTOs) {
-        List<ChungNhan> chungNhanList = chungNhanService.createAllChungNhan(chungNhanDTOs);
         return ResponseEntity.created(URI.create("/api/chungnhan/all")).body(chungNhanDTOs);
     }
 

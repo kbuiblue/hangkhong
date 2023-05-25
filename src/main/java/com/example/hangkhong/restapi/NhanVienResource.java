@@ -18,13 +18,12 @@ public class NhanVienResource implements NhanVienAPI {
     @Override
     public ResponseEntity<NhanVien> createNhanVien(NhanVienDTO nhanVienDTO) {
         NhanVien nhanVien = nhanVienService.createNhanVien(nhanVienDTO);
-        return ResponseEntity.created(URI.create("/api/chuyenbay" + nhanVien.getMaNv())).body(nhanVien);
+        return ResponseEntity.created(URI.create("/api/nhanvien" + nhanVien.getMaNv())).body(nhanVien);
     }
 
     @Override
     public ResponseEntity<List<NhanVienDTO>> createAllNhanVien(List<NhanVienDTO> nhanVienDTOs) {
-        List<NhanVien> nhanVienList = nhanVienService.createAllNhanVien(nhanVienDTOs);
-        return ResponseEntity.created(URI.create("/api/maybay/all")).body(nhanVienDTOs);
+        return ResponseEntity.created(URI.create("/api/nhanvien/all")).body(nhanVienDTOs);
     }
 
     @Override
